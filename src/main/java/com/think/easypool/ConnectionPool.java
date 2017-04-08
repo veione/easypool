@@ -144,8 +144,8 @@ public class ConnectionPool implements Serializable, Closeable {
 	}
 	
 	/**
-	 * 需要被填充的连接
-	 * @param connectionsToCreate 需要被创建的连接数量
+	 * Need to be created number.
+	 * @param connectionsToCreat created number
 	 * @throws InterruptedException 
 	 */
 	private void fillConnections(int connectionsToCreate) throws InterruptedException {
@@ -171,17 +171,17 @@ public class ConnectionPool implements Serializable, Closeable {
 	 */
 	public void addFreeConnection(ConnectionHandle connectionHandle) {
 		updateCreatedConnections(1);
-		// 插入元素失败
+		// Insert element
 		if (!this.freeConnections.offer(connectionHandle)) {
 			// add connection failed. rollback.
 			updateCreatedConnections(-1);
-			//关闭该连接
+			//close connection
 			connectionHandle.close();
 		}
 	}
 	
 	/**
-	 * 更新空闲的连接统计
+	 * Update created connections num.
 	 * @param increment
 	 */
 	private void updateCreatedConnections(int increment) {
@@ -230,9 +230,9 @@ public class ConnectionPool implements Serializable, Closeable {
 	}
 	
 	/**
-	 * 当前连接时候还存活
-	 * @param connection 当前连接对象
-	 * @return true表示还存活在,否则false.
+	 *  Current connection is alive.
+	 * @param connection 
+	 * @return 
 	 */
 	public boolean isConnectionHandleAlive(ConnectionHandle connection) {
 		return connection.isOpen();
