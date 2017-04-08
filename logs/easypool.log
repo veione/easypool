@@ -1,0 +1,2 @@
+[easypool] 2017-04-08 15:55:05,781 INFO  [main] com.think.easypool.ConnectionPool | createConnections=6, freeConnections=6, busyConnections=0
+[easypool] 2017-04-08 15:55:05,788 INFO  [main] com.think.easypool.ConnectionPool | createConnections=6, freeConnections=5, busyConnections=1
